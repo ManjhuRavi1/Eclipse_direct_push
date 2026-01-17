@@ -1,7 +1,7 @@
 
 package Package1;
 
-public enum Gender {
+public enum Gender{
     MALE('M'),
     FEMALE('F'),
     OTHER('O');
