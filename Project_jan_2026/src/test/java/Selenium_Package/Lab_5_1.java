@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  
 import io.github.bonigarcia.wdm.WebDriverManager;
  
-public class Lab_5 {
+public class Lab_5_1 {
  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
