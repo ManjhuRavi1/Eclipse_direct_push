@@ -27,7 +27,6 @@ public class TC_1 {
 		System.out.println("Title is : " + driver.getTitle());
 		driver.close();
 		
-		
 	}
 
 }
