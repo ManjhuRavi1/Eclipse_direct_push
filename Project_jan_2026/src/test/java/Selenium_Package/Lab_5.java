@@ -23,6 +23,5 @@ public class Lab_5 {
 	System.out.println("Warning Message:"+Warningmsg);
 	
 	
-	
 	}
 }
