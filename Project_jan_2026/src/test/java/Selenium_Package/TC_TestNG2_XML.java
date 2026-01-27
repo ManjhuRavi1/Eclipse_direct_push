@@ -1,6 +1,11 @@
 package Selenium_Package;
  
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
  
 import io.github.bonigarcia.wdm.WebDriverManager;
  
@@ -17,6 +22,10 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
  
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+ 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -30,7 +39,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
  
-public class TC_TestNG {
+public class TC_TestNG2_XML {
 	
 	WebDriver driver;
 	
@@ -85,11 +94,24 @@ public class TC_TestNG {
  
  
   @DataProvider
-  public Object[][] dp() throws InvalidFormatException, IOException {
+  public Object[][] dp() throws InvalidFormatException, IOException, ParserConfigurationException, SAXException {
 	  
 	  String[][] data1=new String[1][3];
+	  File xmlfile=new File(projectpath+"\\data.xml");
+	  DocumentBuilderFactory dbfactory=DocumentBuilderFactory.newInstance();
+	  DocumentBuilder dbuilder=dbfactory.newDocumentBuilder();
+	  Document doc=dbuilder.parse(xmlfile);
+	  NodeList nl=doc.getChildNodes();
+	  Node n=nl.item(0);
+	  Element ele=(Element)n;
 	  
-	  Properties prob=new Properties();
+	  String ohrm_url=ele.getElementsByTagName("url").item(0).getTextContent();
+	  String ohrm_username=ele.getElementsByTagName("username").item(0).getTextContent();
+	  String ohrm_password=ele.getElementsByTagName("password").item(0).getTextContent();
+	  data1[0][0]=ohrm_url;
+	  data1[0][1]=ohrm_username;
+	  data1[0][2]=ohrm_password;
+	 /* Properties prob=new Properties();
 	  File f2=new File(projectpath+"\\input.properties");
 	  FileInputStream fs=new FileInputStream(f2);
 	  prob.load(fs);
