@@ -3,19 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selenium_Package.TC_TestNG2_XML">
+      <class name="com.orhrm.test.logintest">
         <methods>
-          <include name="f" invocation-numbers="0"/>
-          <include name="beforeClass"/>
+          <include name="verifylogin" invocation-numbers="0"/>
           <include name="afterMethod"/>
-          <include name="beforeTest"/>
-          <include name="afterClass"/>
-          <include name="afterTest"/>
-          <include name="afterSuite"/>
-          <include name="beforeSuite"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- Selenium_Package.TC_TestNG2_XML -->
+      </class> <!-- com.orhrm.test.logintest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
